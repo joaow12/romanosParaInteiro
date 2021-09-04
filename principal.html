@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>Tornar números romanos em inteiros</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <script type="text/javascript">
+            var x;
+            var maisculo
+            var result = 0;
+            x = prompt("Digite um valor em romano");
+            maisculo = x.toUpperCase();
+            var array = maisculo.split("");
+            for(var i=0; i<array.length; i++){
+                switch (array[i]){
+                    case "I":
+                        array[i] = 1;
+                        break;
+                    case "V":
+                        array[i] = 5;
+                        break;
+                    case "X":
+                        array[i] = 10;
+                        break;
+                    case "L":
+                        array[i] = 50;
+                        break;
+                    case "C":
+                        array[i] = 100;
+                        break;
+                    case "D":
+                        array[i] = 500;
+                        break;
+                    case "M":
+                        array[i] = 1000;
+                        break;
+                }
+            }
+
+            for(var i=0; i<array.length; i++){
+                var atual = array[i];
+                var proximo = array[i+1];
+                if(proximo && atual < proximo){
+                    result -= atual;
+                }else{
+                    result += atual; 
+                }
+            }
+            document.write(result);
+        </script>
+    </body>
+</html>
